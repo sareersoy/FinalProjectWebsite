@@ -82,10 +82,11 @@ if page == 'Homepage':
     st.video(video_url)
 
     
-    # Download Poster
+    
+    st.header('Download Poster')
     poster_path = "Report.pdf"  # Ensure this path is correct relative to your script location
     base64_pdf = get_file_content_as_base64(poster_path)
-
+    
     if base64_pdf:
         # Embedding PDF in HTML
         pdf_display = f"""<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf" style="overflow: auto;">"""

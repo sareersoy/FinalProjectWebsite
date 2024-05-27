@@ -1,10 +1,13 @@
 import streamlit as st
 import base64
 
-# Function to handle file content conversion for download
 def get_file_content_as_base64(path):
-    with open(path, "rb") as file:
-        return base64.b64encode(file.read()).decode()
+    try:
+        with open(path, "rb") as file:
+            return base64.b64encode(file.read()).decode()
+    except FileNotFoundError:
+        print(f"Error: File not found at path {path}")
+        return None
 
 # Setting page configuration with a wider layout
 st.set_page_config(page_title='Project Introduction Website', layout='wide')

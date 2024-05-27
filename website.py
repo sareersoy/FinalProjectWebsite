@@ -9,38 +9,49 @@ def get_file_content_as_base64(path):
         print(f"Error: File not found at path {path}")
         return None
 
-# Setting page configuration with a wider layout
-st.set_page_config(page_title='Project Introduction Website', layout='wide')
-
-# Injecting Custom CSS for Dark Mode
 st.markdown("""
 <style>
-    html, body, [data-testid="stApp"] {
-        background-color: #121212; /* Dark background */
-        color: #E0E0E0; /* Light text */
-    }
-    .css-1d391kg {
-        background-color: #121212; /* Dark sidebar background */
-        color: #E0E0E0; /* Light text for sidebar */
-    }
-    h1, h2, h3, h4, h5, h6 {
-        color: #FFA726; /* Orange headers */
-    }
-    .stMarkdown, .markdown-text-container {
-        color: #E0E0E0; /* Light text for markdown content */
-    }
-    a {
-        color: #BB86FC; /* Purple links */
-    }
-    .css-2trqyj {
-        background-color: #333333; /* Dark background for buttons */
-    }
-    .st-ae {
-        color: #E0E0E0; /* Light text for report error */
-    }
-    .st-bx {
-        border-color: #333333; /* Border color for widgets */
-    }
+body {
+    color: #fff;
+    background-color: #0e1117;
+    font-family: 'Calibri', sans-serif;
+}
+h1, h2, h3, h4 {
+    color: #ff6347;
+    font-weight: bold;
+}
+h1 {
+    font-size: 42px;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 28px;
+}
+a {
+    color: #f9a825;
+    font-weight: bold;
+}
+.sidebar .sidebar-content {
+    background-color: #1e2128;
+}
+.streamlit-expanderHeader {
+    color: #fb8500;
+}
+.streamlit-expander {
+    background-color: #262b33;
+}
+div.block-container {
+    padding: 2rem;
+}
+div[data-testid="stBlock"] {
+    background-color: #33383d;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+}
 </style>
 """, unsafe_allow_html=True)
 # Title and Introduction on the Homepage

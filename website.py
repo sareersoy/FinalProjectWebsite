@@ -95,7 +95,7 @@ if page == 'Homepage':
     src="data:application/pdf;base64,{base64_pdf}"
     style="overflow: auto; width: 100%; height: 100%;">"""  
     # Displaying File
-    st.markdown(get_file_content_as_base64, unsafe_allow_html=True
+    st.markdown(get_file_content_as_base64, unsafe_allow_html=True)
     st.markdown(
         f'<a href="data:file/pdf;base64,{base64_pdf}" download="{poster_path}">Click here to download the poster</a>',
         unsafe_allow_html=True

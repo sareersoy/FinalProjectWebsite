@@ -89,7 +89,7 @@ if page == 'Homepage':
     
     if base64_pdf:
         # Embedding PDF in HTML
-        pdf_display = f"""<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf" style="overflow: auto;">"""
+         pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)  # Correctly displaying the PDF
         st.markdown(
             f'<a href="data:application/pdf;base64,{base64_pdf}" download="{poster_path}">Click here to download the poster</a>',

@@ -86,14 +86,21 @@ if page == 'Homepage':
     st.header('Download Poster')
     poster_path = r"Report.pdf"
     base64_pdf = get_file_content_as_base64(poster_path)
-    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf">'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+   
+    # Embedding PDF in HTML
+    pdf_display =  f"""<embed
+    class="base64_pdf"
+    type="application/pdf"
+    title="Embedded PDF"
+    src="data:application/pdf;base64,{base64_pdf}"
+    style="overflow: auto; width: 100%; height: 100%;">"""  
+    # Displaying File
+    st.markdown(get_file_content_as_base64, unsafe_allow_html=True
     st.markdown(
         f'<a href="data:file/pdf;base64,{base64_pdf}" download="{poster_path}">Click here to download the poster</a>',
         unsafe_allow_html=True
-    )
-       
-
+        )
+                
 if page == 'About':
     st.header('About the Project')
     st.write("""

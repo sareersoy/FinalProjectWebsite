@@ -96,15 +96,10 @@ if page == 'Homepage':
         src="data:application/pdf;base64,{base64_pdf}"
         style="overflow: auto; width: 700%; height: 600%;">"""
 
-    # Displaying File
-    st.markdown(pdf_display, unsafe_allow_html=True)
-        
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf"></iframe>'
+        # Displaying File
         st.markdown(pdf_display, unsafe_allow_html=True)
-        st.markdown(
-            f'<a href="data:application/pdf;base64,{base64_pdf}" download="Report.pdf">Click here to download the poster</a>',
-            unsafe_allow_html=True
-        )
+        
+       
 
 if page == 'About':
     st.header('About the Project')

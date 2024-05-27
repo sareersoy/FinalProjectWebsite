@@ -85,7 +85,7 @@ if page == 'Homepage':
 
     # Download Poster
     st.header('Download Poster')
-    poster_path = r"\Red and Gray Contemporary Editorial Landscape University Research Poster.pdf"
+    poster_path = r"Red and Gray Contemporary Editorial Landscape University Research Poster.pdf"
     base64_pdf = get_file_content_as_base64(poster_path)
     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf">'
     st.markdown(pdf_display, unsafe_allow_html=True)

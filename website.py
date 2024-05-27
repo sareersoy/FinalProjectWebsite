@@ -88,14 +88,16 @@ if page == 'Homepage':
 
     # Download Poster
     st.header('Download Poster')
-    poster_path = r"Report.pdf"
+    poster_path = "Report.pdf"  # Ensure this is the correct relative path to the PDF file in your repository
     base64_pdf = get_file_content_as_base64(poster_path)
-    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf">'
-    st.markdown(pdf_display, unsafe_allow_html=True)
-    st.markdown(
-        f'<a href="data:file/pdf;base64,{base64_pdf}" download="{"Report.pdf"}">Click here to download the poster</a>',
-        unsafe_allow_html=True
-    )
+    
+    if base64_pdf is not None:
+        pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf">'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+        st.markdown(
+            f'<a href="data:application/pdf;base64,{base64_pdf}" download="Report.pdf">Click here to download the poster</a>',
+            unsafe_allow_html=True
+        )
 
 if page == 'About':
     st.header('About the Project')

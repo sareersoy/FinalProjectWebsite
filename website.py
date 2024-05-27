@@ -87,6 +87,18 @@ if page == 'Homepage':
     base64_pdf = get_file_content_as_base64(poster_path)
     
     if base64_pdf is not None:
+
+         # Embedding PDF in HTML
+        pdf_display =  f"""<embed
+        class="base64_pdf"
+        type="application/pdf"
+        title="Embedded PDF"
+        src="data:application/pdf;base64,{base64_pdf}"
+        style="overflow: auto; width: 700%; height: 600%;">"""
+
+    # Displaying File
+    st.markdown(pdf_display, unsafe_allow_html=True)
+        
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
         st.markdown(

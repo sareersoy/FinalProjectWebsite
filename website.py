@@ -117,7 +117,6 @@ if page == 'Objectives':
 
     4. **Scalability and Integration**: We are committed to ensuring that our solution can scale effectively and be seamlessly integrated with existing and future systems. This involves developing a framework that supports easy implementation and maintenance.
 
-    5. **Expand Language Coverage**: Although initially focusing on English and Spanish, we plan to extend our models to include other major languages, thereby broadening the applicability of NameCheck AI globally.
     """)
 
 if page == 'Methodology':

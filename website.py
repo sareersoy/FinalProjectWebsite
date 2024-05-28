@@ -1,14 +1,15 @@
 import streamlit as st
 import base64
 
-def get_file_content_as_base64(path):
-    try:
-        with open(path, "rb") as file:
-            return base64.b64encode(file.read()).decode()
-    except FileNotFoundError:
-        print(f"Error: File not found at path {path}")
-        return None
 
+def get_file_content_as_base64(path):
+    with open(path, "rb") as file:
+        return base64.b64encode(file.read()).decode()
+
+# Setting page configuration with a wider layout
+st.set_page_config(page_title='Project Introduction Website', layout='wide')
+
+# Custom CSS for overall styling and fancy effects
 st.markdown("""
 <style>
 body {
@@ -54,6 +55,7 @@ div[data-testid="stBlock"] {
 }
 </style>
 """, unsafe_allow_html=True)
+
 # Title and Introduction on the Homepage
 st.title('NameCheck AI: Real-Time Name Validation')
 st.markdown(
@@ -70,7 +72,7 @@ if page == 'Homepage':
     st.markdown("""
     At its core, **NameCheck AI** leverages sophisticated **DistilBERT models** to perform real-time validation of names, ensuring they represent legitimate entries rather than inaccuracies or fabrications. Initially focusing on English and Spanish, the project aims to expand to additional languages, making this technology accessible on a global scale.
 
-    This project is not just about technical excellence but also about practical impact. By enhancing the process of name validation, NameCheck AI plays a pivotal role in improving data quality across numerous platforms and applications. Whether it's enhancing user registration processes, securing transactions, or ensuring the accuracy of user-generated content, NameCheck AI provides a critical layer of trust and reliability.
+    This project is not just about technical excellence but also about practical impact. Whether it's enhancing user registration processes, securing transactions, or ensuring the accuracy of user-generated content, NameCheck AI provides a critical layer of trust and reliability.
 
     Utilizing an intuitive interface developed with Streamlit, NameCheck AI makes it easy for users to benefit from this advanced technology. The system has been designed from the ground up to be user-friendly, ensuring that individuals and organizations can easily integrate and benefit from its capabilities.
     """, unsafe_allow_html=True)
@@ -81,21 +83,17 @@ if page == 'Homepage':
     video_url = 'https://www.youtube.com/watch?v=yhXnLgJJBAA&ab_channel=SareBayraktutan'  # Replace with your actual YouTube video ID
     st.video(video_url)
 
-    
-    
+    # Download Poster
     st.header('Download Poster')
-    poster_path = "Report.pdf"  # Ensure this path is correct relative to your script location
+    poster_path = r"\Red and Gray Contemporary Editorial Landscape University Research Poster.pdf"
     base64_pdf = get_file_content_as_base64(poster_path)
-    
-    if base64_pdf:
+    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="600" type="application/pdf">'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+    st.markdown(
+        f'<a href="data:file/pdf;base64,{base64_pdf}" download="{poster_path}">Click here to download the poster</a>',
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            f'<a href="data:application/pdf;base64,{base64_pdf}" download="{poster_path}">Click here to download the poster</a>',
-            unsafe_allow_html=True
-        )
-    else:
-        st.write("Failed to load PDF file.")
-                
 if page == 'About':
     st.header('About the Project')
     st.write("""
@@ -135,7 +133,6 @@ if page == 'Methodology':
 
     4. **Frontend Development**: Using Streamlit, we developed a user-friendly interface that allows users to interact with the models easily. This interface supports quick data input and visualization of the validation results, providing an intuitive experience for end-users.
 
-    5. **Continuous Testing and Integration**: Throughout development, we conducted continuous testing to ensure the models' accuracy and the system's reliability. This included automated tests for performance benchmarks and user acceptance testing to gather feedback for improvements.
     """)
 
 if page == 'Results':
@@ -145,7 +142,7 @@ if page == 'Results':
 
     1. **Model Accuracy and Efficiency**: The English and Spanish DistilBERT models achieved an accuracy rate exceeding 95%, successfully identifying authentic names versus synthetic inputs. The models also maintained high efficiency, with the ability to process queries in real-time, typically responding within milliseconds.
 
-    2. **User Feedback and System Usability**: Initial user testing yielded overwhelmingly positive feedback, with users praising the system's quick response times and high accuracy. The Streamlit-powered frontend was noted for its ease of use and intuitive design, making it accessible to users with varying levels of technical expertise.
+    2. **System Usability**: The Streamlit-powered frontend was noted for its ease of use and intuitive design, making it accessible to users with varying levels of technical expertise.
 
     3. **Performance Under Load**: Further tests on system scalability revealed that NameCheck AI could handle significantly increased loads without a notable decrease in performance. This ensures that the system can be deployed in high-demand environments without losing its effectiveness.
 
@@ -171,6 +168,12 @@ if page == 'Contact':
     st.header('Contact Us')
     st.write("""
              For more information or to inquire about potential collaborations, please contact us at:
-             - Email: [info@namecheckai.com](mailto:info@namecheckai.com)
-             - GitHub: [Visit our repository](https://github.com)
+             - Email: [sarenazersoy@gmail.com](sarenazersoy@gmail.com)
+             - GitHub: [Visit our repository](https://github.com/sareersoy/FinalProjectWebsite/blob/main/website.py)
+             """)
+    st.subheader('Meet Our Team')
+    st.write("""
+             - **Sare Naz Bayraktutan**: 21992957
+             - **Selahattin Can Ölçer**: 21946462
+             - **Yasin Kömür**: 21827632
              """)

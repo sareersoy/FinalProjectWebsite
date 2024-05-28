@@ -168,7 +168,7 @@ if page == 'Contact':
     st.write("""
              For more information or to inquire about potential collaborations, please contact us at:
              - Email: [sarenazersoy@gmail.com](sarenazersoy@gmail.com)
-             - GitHub: [Visit our repository](https://github.com/sareersoy/FinalProjectWebsite/blob/main/website.py)
+             - GitHub: [Visit our repository to source codes](https://github.com/sareersoy/Final-Project)
              """)
     st.subheader('Meet Our Team')
     st.write("""
